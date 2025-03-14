@@ -28,6 +28,9 @@ services:
       - DB_DATABASE=bimbingan
       - DB_USERNAME=user
       - DB_PASSWORD=password
+    volumes:
+      - ./backend:/var/www/html
+    user: "www-data"
 
   frontend:
     build: ./frontend
@@ -37,3 +40,5 @@ services:
       - backend
     ports:
       - "3000:3000"
+    volumes:
+      - ./frontend:/app
