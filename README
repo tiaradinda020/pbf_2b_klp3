@@ -1,1 +1,17 @@
+# PBF 2B Kelompok 3 🚀
 
+Repository ini berisi proyek Pemrograman Berbasis Framework (PBF) yang dapat dijalankan menggunakan *Docker*.
+
+## 📌 Prerequisites
+
+Pastikan kamu sudah menginstal:
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## ⚡ Cara Menjalankan dengan Docker
+
+1. *Clone repository ini*  
+   ```sh
+   git clone https://github.com/tiaradinda020/pbf_2b_klp3.git
+   cd pbf_2b_klp3
+### masih dalam proses
