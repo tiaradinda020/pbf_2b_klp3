@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  bimbingan_mysql:
+    image: mysql:8.0
+    container_name: bimbingan_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bimbingan
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/bimbingan.sql:/docker-entrypoint-initdb.d/bimbingan.sql
+
+  backend:
+    build: ./backend
+    container_name: bimbingan_backend
+    restart: always
+    depends_on:
+      - bimbingan_mysql
+    ports:
+      - "8080:80"
+    environment:
+      - DB_HOST=bimbingan_mysql
+      - DB_DATABASE=bimbingan
+      - DB_USERNAME=user
+      - DB_PASSWORD=password
+
+  frontend:
+    build: ./frontend
+    container_name: bimbingan_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
